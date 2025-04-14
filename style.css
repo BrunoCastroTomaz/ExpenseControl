@@ -1,0 +1,39 @@
+body {
+    background: rgb(45, 211, 111);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+form {
+    width: 300px;
+}
+input {
+    border: none;
+}
+input, button {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: -webkit-fill-available;/*faz com que o botao e input preencham o espaço disponivel pra eles dentro da tag pai(form)*/
+}
+button {
+    cursor: pointer;
+}
+button:active { /*quando botão estiver ativo ele fica com opacidade de 0.8 -> ativo significa que o usuario clicou nele*/
+    color: rgba(27, 131, 69, 0.8);
+}
+.clear {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+}
+.solid {
+    background: #ffffff;
+    border: none;
+    color: rgb(45, 211, 111);
+}
+.outline {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
