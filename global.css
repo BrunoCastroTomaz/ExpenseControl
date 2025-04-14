@@ -1,0 +1,26 @@
+button:active { /*quando botão estiver ativo ele fica com opacidade de 0.8 -> ativo significa que o usuario clicou nele*/
+    color: rgba(27, 131, 69, 0.8);
+}
+button[disabled] {
+    opacity: 0.7;
+}
+.clear {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+}
+.solid {
+    background: #ffffff;
+    border: none;
+    color: rgb(45, 211, 111);
+}
+.outline {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+.error {
+    color: #ffffff;
+    background: red;
+    display: none; /*remove a visualização do elemento*/
+}

@@ -11,54 +11,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Expense Control</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="global.css">
 </head>
 <body>
     <form>
-        <div> <!--onchange executa uma ação toda vez que o campo input é modificado
+        <div class="form-field"> <!--onchange executa uma ação toda vez que o campo input é modificado
             pesquisar oninput-->
             <div><label for="email">Email</label></div>
-            <input type="email" name="email" id="email" onchange="validateFields()" placeholder="seu@email.com"/>
+            <input type="email" name="email" id="email" onchange="onChangeEmail()" placeholder="seu@email.com"/>
+            <div class="error" id="email-required-error">Email é obrigatório</div>
+            <div class="error" id="email-invalid-error">Email é inválido</div>
         </div>
-        <div>
+        <div class="form-field">
             <div><label for="password">Senha</label></div>
-            <input type="password" name="password" placeholder="Senha"/>
+            <input type="password" name="password" id="password" onchange="onChangePassword()" placeholder="Senha"/>
+            <div class="error" id="password-required-error">Senha é obrigatória</div>
         </div>
         <div> <!--types: button(informa que o botao é clicável) ; submit(permite enviar informações de formulário para uma URL) and reset(reseta os campos e deixa eles vazios)-->
             <button type="button" class="clear" id="recover-password-button" disabled="true">Recuperar Senha</button>
         </div>
         <div>
-            <button type="button" class="solid" disabled="True">Entrar</button>
+            <button type="button" class="solid" id="login-button" disabled="true">Entrar</button>
         </div>
         <div>
             <button type="button" class="outline">Registrar</button>
         </div>
     </form>
-    <script>
-        function validateFields() {
-            //pegar o valor do campo de email
-            const email = document.querySelector("input#name").value;
-
-            //verificar se o email não é vazio e se o email é valido
-            if (email === null) {
-                //se email vazio, entao desabilitar o botao de recuperar senha
-                document.getElementById('recover-password-button').disabled = true;
-            } else if (validateEmail(email)) {
-                //se email valido, entao habilitar o botao de recuperar senha
-                document.getElementById('recover-password-button').disabled = false;
-            } else {
-                //se email invalido desabilitar botao
-                document.getElementById('recover-password-button').disabled = true;
-            }
-        }
-        function validateEmail(email) { 
-            //função que verifica se o email é valido usando expressoes regulares
-            return /\S+@\S+\.\S+/.test(email);
-        }
-        // Importante:
-// Esta é uma validação de e-mail muito básica. Ela verifica apenas a estrutura geral e não garante que o endereço de e-mail seja realmente válido, exista ou esteja formatado de acordo com todas as especificações RFC para endereços de e-mail.
-
-// Para uma validação de e-mail mais robusta, você precisaria de uma expressão regular mais complexa ou usar uma biblioteca de validação de e-mail dedicada. No entanto, para verificações simples de formato, essa expressão regular pode ser útil.
-    </script>
+    <script src="index.js"></script>
+    <script src="validations.js"></script>
 </body>
 </html>
