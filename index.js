@@ -16,6 +16,37 @@ function onChangePassword() {
     togglePasswordErrors();
 }
 
+function login() {
+    /*essa função retorna um promise, basicamente é uma promessa de que a requisição será respondida.
+    quando a chamada for respondida então vocÊ poderá usar a resposta ou então receber o erro retornado pela requisição
+    uma promisse informa que retornará um valor, mas nao diz QUANDO irá retornar (pode ser instantaneamente, pode demorar 10s etc)*/
+    
+    firebase.auth().signInWithEmailAndPassword(
+        form.email().value, form.password().value
+    ).then(response => {
+        //console.log('success', response)
+        window.location.href = "pages/home/home.html";
+    }).catch(error => {
+        //console.log('error', error)
+        alert(getErrorMessage(error));
+    });
+    
+    //atributo location representa a url atual onde o browser está
+    //console.log('### window', window);
+    //console.log('### window location', window.location);
+}
+
+function getErrorMessage(error) {
+    if (error.code === "auth/user-not-found" || error.code === "auth/invalid-credential") {
+        return "Usuário não encontrado";
+    }
+    return error.message;
+}
+
+function register() {
+    window.location.href = "pages/register/register.html";
+}
+
 function isEmailValid() {
     const email = form.email().value;
     //const email = document.getElementById("email").value;

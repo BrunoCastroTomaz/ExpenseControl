@@ -32,13 +32,26 @@
             <button type="button" class="clear" id="recover-password-button" disabled="true">Recuperar Senha</button>
         </div>
         <div>
-            <button type="button" class="solid" id="login-button" disabled="true">Entrar</button>
+            <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">Entrar</button>
         </div>
         <div>
-            <button type="button" class="outline">Registrar</button>
+            <button type="button" class="outline" onclick="register()">Registrar</button>
         </div>
     </form>
     <script src="index.js"></script>
     <script src="validations.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDVDIZqiotrv_Xt-aCWOaQdy-nUKwhtbis",
+            authDomain: "expense-control-22822.firebaseapp.com",
+            projectId: "expense-control-22822",
+            storageBucket: "expense-control-22822.firebasestorage.app",
+            messagingSenderId: "521724104919",
+            appId: "1:521724104919:web:f1826c59816108cabf6092"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </body>
 </html>
