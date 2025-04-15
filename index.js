@@ -17,6 +17,8 @@ function onChangePassword() {
 }
 
 function login() {
+    showLoading();
+    
     /*essa função retorna um promise, basicamente é uma promessa de que a requisição será respondida.
     quando a chamada for respondida então vocÊ poderá usar a resposta ou então receber o erro retornado pela requisição
     uma promisse informa que retornará um valor, mas nao diz QUANDO irá retornar (pode ser instantaneamente, pode demorar 10s etc)*/
@@ -25,9 +27,11 @@ function login() {
         form.email().value, form.password().value
     ).then(response => {
         //console.log('success', response)
+        hideLoading();
         window.location.href = "pages/home/home.html";
     }).catch(error => {
         //console.log('error', error)
+        hideLoading();
         alert(getErrorMessage(error));
     });
     
@@ -37,14 +41,28 @@ function login() {
 }
 
 function getErrorMessage(error) {
-    if (error.code === "auth/user-not-found" || error.code === "auth/invalid-credential") {
+    if (error.code == "auth/invalid-credential") {
         return "Usuário não encontrado";
+    }
+    if (error.code == "auth/wrong-password"){
+        return "Senha inválida!";
     }
     return error.message;
 }
 
 function register() {
     window.location.href = "pages/register/register.html";
+}
+
+function recoverPassword() {
+    showLoading();
+    firebase.auth().sendPasswordResetEmail(form.email().value).then(() => {
+        hideLoading();
+        alert('Email enviado com sucesso');
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+    });
 }
 
 function isEmailValid() {
@@ -66,7 +84,6 @@ function toggleEmailErrors() { //alternar os erros de email
 function togglePasswordErrors() {
     const password = form.password().value;
     form.passwordRequiredError().style.display = password ? "none" : "block";
-
 }
 
 function toggleButtonsDisable() {

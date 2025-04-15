@@ -1,3 +1,34 @@
+body {
+    margin: 0;
+}
+
+.centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-field {
+    margin-bottom: 10px;
+}
+
+input,
+button {
+    padding: 10px;
+    width: -webkit-fill-available;/*faz com que o botao e input preencham o espaço disponivel pra eles dentro da tag pai(form)*/
+}
+
+.loading {
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.loading label {
+    font-size: 24px;
+}
+
 button:active { /*quando botão estiver ativo ele fica com opacidade de 0.8 -> ativo significa que o usuario clicou nele*/
     color: rgba(27, 131, 69, 0.8);
 }
