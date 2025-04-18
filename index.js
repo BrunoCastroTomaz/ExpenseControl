@@ -1,3 +1,10 @@
+//evento que verifica constantemente no firebase authenticantion se ocorreu alguma mudança no estado da autenticaçao (se o usuario trocou de logado para não logado e vice-versa)
+
+firebase.auth().onAuthStateChanged(user => {
+    if (user) { 
+        window.location.href = "pages/home/home.html";
+    }
+}); 
 
 /*
 Validações:

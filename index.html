@@ -1,5 +1,7 @@
 <!-- janela anonima abrir os seguintes links em ordem:
- https://firebase.google.com/docs/studio?hl=pt-br
+https://www.youtube.com/watch?v=_DNY4gu6AbQ&list=PLMbclvogjXZVxxN06cefN7q5nyt7u5dUq&index=15
+
+https://firebase.google.com/docs/studio?hl=pt-br
  
  https://firebase.google.com/docs/studio/idx-is-firebase-studio?hl=pt-br
  
@@ -14,7 +16,7 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="global.css">
 </head>
-<body class="centralize">
+    <body class="centralize">
     <form>
         <div class="form-field"> <!--onchange executa uma ação toda vez que o campo input é modificado
             pesquisar oninput-->
@@ -41,21 +43,12 @@
     <!-- <div class="loading centralize"> atribui duas classes a mesma div
         <label>Carregando...</label>
     </div> -->
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth-compat.js"></script>
+    <script src="firebase-init.js"></script>
     <script src="index.js"></script>
     <script src="validations.js"></script>
     <script src="loading.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth-compat.js"></script>
-    <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyDVDIZqiotrv_Xt-aCWOaQdy-nUKwhtbis",
-            authDomain: "expense-control-22822.firebaseapp.com",
-            projectId: "expense-control-22822",
-            storageBucket: "expense-control-22822.firebasestorage.app",
-            messagingSenderId: "521724104919",
-            appId: "1:521724104919:web:f1826c59816108cabf6092"
-        };
-        firebase.initializeApp(firebaseConfig);
-    </script>
+    
 </body>
 </html>
